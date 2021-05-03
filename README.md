@@ -59,3 +59,24 @@ ViewControllerTests
 
 ## Refactoring
 
+## Refactoring
+
+- 기존에 `testController_whenTappedClearButton_canvasViewIsClear()` 테스트를 진행하였다. Clear 버튼을 탭할시 canvasView의 모든 그림들이 지워지는지에 대한 테스트를 진행한 것인데, 이는 이미 CanvasView 테스트에서 `clear()` 에 대한 테스트를 한 것이다. 그렇기 때문에 테스트가 중복된다고 생각하여 삭제해주었다.
+
+- [Bug Fix] 지우기를 누르고 다시 그림을 그리려고 할 때 index out of range 에러 발생.
+
+  ```swift
+  (lldb) po numberOfPath
+  4
+  ```
+
+  간단했다. numberOfPath를 초기화해주지 않았다.
+
+  ```swift
+  func erase() {
+    paths.removeAll()
+    numberOfPath = 0
+    setNeedsDisplay()
+  }
+  ```
+
