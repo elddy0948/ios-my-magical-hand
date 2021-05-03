@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class CanvasViewController: UIViewController {
     //MARK: - Views
     private let backgroundView: UIVisualEffectView = {
         let visualEffectView = UIVisualEffectView()
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 }
 
 //MARK: - Configure Views
-extension ViewController {
+extension CanvasViewController {
     private func configureBackgroundView() {
         view.addSubview(backgroundView)
         backgroundView.frame = view.bounds

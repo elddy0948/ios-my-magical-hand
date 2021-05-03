@@ -33,11 +33,11 @@ ViewControllerTests
 
 ## 고민하고 있어요!
 
-- ✅CreateML시 Maximum Iterations를 아무리 크게 줘도 10회만 학습하는 것 같다. 
+- ✅ CreateML시 Maximum Iterations를 아무리 크게 줘도 10회만 학습하는 것 같다. 
 
   - Training Accuracy가 100%가 되면 Maximum을 채우지 않고 종료한다. (학습이 끝나면 종료!)
 
-- ❌test code를 작성하는 과정에서 Label들을 테스트하는데 private 접근제한자로 선언하였는데. 
+- ❌ test code를 작성하는 과정에서 Label들을 테스트하는데 private 접근제한자로 선언하였는데. 
 
   - ```swift
     private let looksLikeLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .title1))
@@ -51,5 +51,11 @@ ViewControllerTests
 
     이렇게 변경하여 테스트 진행하였습니다 이런 방식이 맞는건지?
 
-- ❌private 접근제한자가 붙은 메서드에 대한 test코드를 만드는 방법?
+- ✅ private 접근제한자가 붙은 메서드에 대한 test코드를 만드는 방법?
+
+  - Private 메서드의 테스트에 대한 여러 글들을 읽어보았다. private로 선언하였으면 그 의도가 있을것이므로 test를 굳이 진행하지 않아도 괜찮다는 의견도 있지만, 어떤 블로그 글에서는 WWDC 17 Engineering of Testability 세션에서 보았던 의존성 분리를 통해서 해결하는 방법도 확인할 수 있었다.  
+
+
+
+## Refactoring
 

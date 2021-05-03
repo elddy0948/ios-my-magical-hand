@@ -8,8 +8,8 @@
 import XCTest
 @testable import MyMagicalHand
 
-class ViewControllerTests: XCTestCase {
-    var sut: ViewController!
+class CanvasViewControllerTests: XCTestCase {
+    var sut: CanvasViewController!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
