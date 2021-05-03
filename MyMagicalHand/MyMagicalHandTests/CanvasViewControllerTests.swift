@@ -35,15 +35,6 @@ class CanvasViewControllerTests: XCTestCase {
         XCTAssertFalse(sut.percentLabel.isHidden)
     }
     
-    func testController_whenTappedClearButton_canvasViewIsClear() {
-        //given
-        sut.canvasView.touchesBegan(Set<UITouch>(), with: .none)
-        //when
-        sut.clearButton.sendActions(for: .touchUpInside)
-        //then
-        XCTAssertEqual(sut.canvasView.paths.count, 0)
-    }
-    
     func testController_whenTappedClearButton_labelsAreHidden() {
         //given
         sut.showResultButton.sendActions(for: .touchUpInside)

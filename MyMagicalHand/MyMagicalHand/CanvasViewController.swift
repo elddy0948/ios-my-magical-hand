@@ -36,6 +36,7 @@ class CanvasViewController: UIViewController {
     
     //MARK: - Actions
     @objc private func didTapShowResultButton(_ sender: UIButton) {
+        print(canvasView.exportImageFromView())
         looksLikeLabel.isHidden = false
         percentLabel.isHidden = false
     }

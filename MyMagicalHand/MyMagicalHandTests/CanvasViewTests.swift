@@ -10,6 +10,7 @@ class CanvasViewTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        sut.erase()
         sut = nil
         try super.tearDownWithError()
     }
@@ -21,5 +22,14 @@ class CanvasViewTests: XCTestCase {
         sut.erase()
         //then
         XCTAssertEqual(sut.paths.count, 0)
+    }
+    
+    func testView_whenexportImageFromView_imageIsNotNil() {
+        //given
+        sut.touchesBegan(Set<UITouch>(), with: nil)
+        //when
+        let image = sut.exportImageFromView()
+        //then
+        XCTAssertNotNil(image)
     }
 }

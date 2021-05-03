@@ -19,6 +19,7 @@
 ```swift
 CanvasViewTests
 	- testView_whenErase_allPathsAreClear()
+ 	- testView_whenexportImageFromView_imageIsNotNil()
 
 ViewControllerTests
 	- testController_whenStartApp_labelsAreHidden()
@@ -56,8 +57,6 @@ ViewControllerTests
   - Private 메서드의 테스트에 대한 여러 글들을 읽어보았다. private로 선언하였으면 그 의도가 있을것이므로 test를 굳이 진행하지 않아도 괜찮다는 의견도 있지만, 어떤 블로그 글에서는 WWDC 17 Engineering of Testability 세션에서 보았던 의존성 분리를 통해서 해결하는 방법도 확인할 수 있었다.  
 
 
-
-## Refactoring
 
 ## Refactoring
 

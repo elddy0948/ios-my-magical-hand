@@ -54,12 +54,19 @@ extension CanvasView {
         numberOfPath = 0
         setNeedsDisplay()
     }
+    
+    func exportImageFromView() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        let image = renderer.image { context in
+            layer.render(in: context.cgContext)
+        }
+        return image
+    }
 }
 
 //MARK: - Touch Event
 extension CanvasView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //Starting new Path
         paths.append(Path())
         setNeedsDisplay()
     }
