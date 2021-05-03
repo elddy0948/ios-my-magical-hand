@@ -24,7 +24,6 @@ CanvasViewTests
 ViewControllerTests
 	- testController_whenStartApp_labelsAreHidden()
 	- testController_whenTappedShowResultButton_labelsAreNotHidden()
-	- testController_whenTappedClearButton_canvasViewIsClear()
 	- testController_whenTappedClearButton_labelsAreHidden
 ```
 
