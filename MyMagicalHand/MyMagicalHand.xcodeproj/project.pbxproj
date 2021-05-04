@@ -16,6 +16,7 @@
 		B4BB6A762630915300BD3712 /* ShapDetectorKeras.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B4BB6A752630915300BD3712 /* ShapDetectorKeras.mlmodel */; };
 		B4BB6A7B2630961900BD3712 /* DrawImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B4BB6A7A2630961900BD3712 /* DrawImageClassifier.mlmodel */; };
 		B4E780A72637ED770023B9B5 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E780A62637ED770023B9B5 /* CanvasView.swift */; };
+		B4EF77C3264181AE0024ABDD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EF77C2264181AE0024ABDD /* Extensions.swift */; };
 		C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927575262C81C900EF5D3A /* AppDelegate.swift */; };
 		C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927577262C81C900EF5D3A /* SceneDelegate.swift */; };
 		C792757A262C81C900EF5D3A /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927579262C81C900EF5D3A /* CanvasViewController.swift */; };
@@ -46,6 +47,7 @@
 		B4BB6A752630915300BD3712 /* ShapDetectorKeras.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ShapDetectorKeras.mlmodel; sourceTree = "<group>"; };
 		B4BB6A7A2630961900BD3712 /* DrawImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawImageClassifier.mlmodel; sourceTree = "<group>"; };
 		B4E780A62637ED770023B9B5 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		B4EF77C2264181AE0024ABDD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C7927572262C81C900EF5D3A /* MyMagicalHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMagicalHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7927575262C81C900EF5D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7927577262C81C900EF5D3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				C792757E262C81CB00EF5D3A /* Assets.xcassets */,
 				C7927580262C81CB00EF5D3A /* LaunchScreen.storyboard */,
 				C7927583262C81CB00EF5D3A /* Info.plist */,
+				B4EF77C2264181AE0024ABDD /* Extensions.swift */,
 			);
 			path = MyMagicalHand;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				B4E780A72637ED770023B9B5 /* CanvasView.swift in Sources */,
 				C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */,
 				C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */,
+				B4EF77C3264181AE0024ABDD /* Extensions.swift in Sources */,
 				B4BB6A7B2630961900BD3712 /* DrawImageClassifier.mlmodel in Sources */,
 				B48E17F426392D360046558B /* ResultLabel.swift in Sources */,
 				B48E17F726392F290046558B /* ActionButton.swift in Sources */,
