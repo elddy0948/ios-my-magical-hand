@@ -1,4 +1,6 @@
+import CoreML
 import UIKit
+import Vision
 
 class CanvasViewController: UIViewController {
     //MARK: - Views
@@ -14,7 +16,21 @@ class CanvasViewController: UIViewController {
     private let labelVerticalStackView = MagicalHandStackView(axis: .vertical, distribution: .fillProportionally, spacing: 16)
     private(set) var looksLikeLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .title1))
     private(set) var percentLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .body))
-
+    
+    lazy var classificationRequest: VNCoreMLRequest = {
+        do {
+            let drawImage = ShapDetectorKeras()
+            let visionModel = try VNCoreMLModel(for: drawImage.model)
+            let request = VNCoreMLRequest(model: visionModel, completionHandler: { request, error in
+                self.processObservations(for: request, error: error)
+            })
+            request.imageCropAndScaleOption = .centerCrop
+            return request
+        } catch {
+            fatalError("\(error)")
+        }
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()
@@ -36,7 +52,8 @@ class CanvasViewController: UIViewController {
     
     //MARK: - Actions
     @objc private func didTapShowResultButton(_ sender: UIButton) {
-        print(canvasView.exportImageFromView())
+        let image = canvasView.exportImageFromView()
+        classify(image: image)
         looksLikeLabel.isHidden = false
         percentLabel.isHidden = false
     }
@@ -57,7 +74,7 @@ extension CanvasViewController {
     private func configureCanvasView() {
         let padding: CGFloat = 16
         let width = view.frame.width - (padding * 2)
-
+        
         view.addSubview(canvasView)
         NSLayoutConstraint.activate([
             canvasView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
@@ -87,5 +104,43 @@ extension CanvasViewController {
             labelVerticalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             labelVerticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
         ])
+    }
+}
+
+//MARK: - CoreML Classify
+extension CanvasViewController {
+    private func classify(image: UIImage) {
+        guard let ciImage = CIImage(image: image) else {
+            print("Unable to create Image")
+            return
+        }
+        let orientation = CGImagePropertyOrientation(image.imageOrientation)
+        DispatchQueue.global(qos: .userInitiated).async {
+            let handler = VNImageRequestHandler(ciImage: ciImage, orientation: orientation)
+            do {
+                try handler.perform([self.classificationRequest])
+            } catch {
+                print("Failed to perform classification: \(error)")
+            }
+        }
+    }
+    
+    func processObservations(for request: VNRequest, error: Error?) {
+        DispatchQueue.main.async {
+            if let results = request.results as? [VNClassificationObservation] {
+                if results.isEmpty {
+                    self.looksLikeLabel.text = "nothing found"
+                } else if results[0].confidence < 0.8 {
+                    self.looksLikeLabel.text = "not sure"
+                } else {
+                    self.looksLikeLabel.text = results[0].identifier
+                    self.percentLabel.text = String(format: "%.1f%%", results[0].confidence * 100)
+                }
+            } else if let error = error {
+                self.looksLikeLabel.text = "error: \(error.localizedDescription)"
+            } else {
+                self.looksLikeLabel.text = "???"
+            }
+        }
     }
 }
