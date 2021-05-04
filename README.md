@@ -54,6 +54,8 @@ ViewControllerTests
 - ✅ private 접근제한자가 붙은 메서드에 대한 test코드를 만드는 방법?
 
   - Private 메서드의 테스트에 대한 여러 글들을 읽어보았다. private로 선언하였으면 그 의도가 있을것이므로 test를 굳이 진행하지 않아도 괜찮다는 의견도 있지만, 어떤 블로그 글에서는 WWDC 17 Engineering of Testability 세션에서 보았던 의존성 분리를 통해서 해결하는 방법도 확인할 수 있었다.  
+  
+- ❌ 그림 예측을 할 때 별모양은 잘 인식을 하지 못하는 것 같다. (계속 Triangle이라고함 ㅠㅠ)
 
 
 
