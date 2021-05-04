@@ -34,7 +34,7 @@ extension CanvasView {
         
         let bezierPath = UIBezierPath()
         bezierPath.lineCapStyle = .round
-        bezierPath.lineWidth = 5
+        bezierPath.lineWidth = 15
         
         paths.forEach { path in
             for index in 0..<path.points.count {
